@@ -8,7 +8,7 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
-
+  
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
@@ -29,9 +29,15 @@ module.exports = function (grunt) {
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
+      handlebars: {
+        files: [
+           '<%= yeoman.app %>/views/**/*.hbs'
+          ],
+          tasks: ['handlebars']
+      },
       less: {
         files: [
-          '<%= yeoman.app %>/styles/**/*.less',
+          '<%= yeoman.app %>/styles/**/*.less'
         ],
         tasks: ['less', 'autoprefixer']
       },
@@ -134,6 +140,23 @@ module.exports = function (grunt) {
         src: ['test/spec/{,*/}*.js']
       }
     },
+    handlebars: {
+      all: {
+        options: {
+          // configure a namespace for your templates
+          namespace: 'Templates',
+          // convert file path into a function name
+          // in this example, I convert grab just the filename without the extension 
+          processName: function(filePath) {
+            var pieces = filePath.split('/');
+            return pieces[pieces.length - 1].split('.')[0];
+          }
+        },
+        files: {
+          '<%= yeoman.app %>/templates.js': ['<%= yeoman.app %>/views/**/*.hbs']
+        }
+      }
+    },
     less: {
       options: {
         paths: ['styles']
@@ -171,7 +194,7 @@ module.exports = function (grunt) {
       },
       server: {
         options: {
-          map: true,
+          map: true
         },
         files: [{
           expand: true,
@@ -301,7 +324,7 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'views/{,*/}*.html',
+            'templates.js',
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*'
           ]
@@ -329,17 +352,20 @@ module.exports = function (grunt) {
     concurrent: {
       server: [
         'less',
-        'copy:styles'
+        'copy:styles',
+        'handlebars'
       ],
       test: [
         'less',
-        'copy:styles'
+        'copy:styles',
+        'handlebars'
       ],
       dist: [
         'less',
         'copy:styles',
         'imagemin',
-        'svgmin'
+        'svgmin',
+        'handlebars'
       ]
     },
 
@@ -393,9 +419,4 @@ module.exports = function (grunt) {
     'htmlmin'
   ]);
 
-  grunt.registerTask('default', [
-    'newer:jshint',
-    'test',
-    'build'
-  ]);
 };
