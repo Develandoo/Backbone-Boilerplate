@@ -29,6 +29,12 @@ module.exports = function (grunt) {
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
+      less: {
+        files: [
+          '<%= yeoman.app %>/styles/**/*.less',
+        ],
+        tasks: ['less', 'autoprefixer']
+      },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
         tasks: ['newer:jshint:all'],
@@ -109,7 +115,6 @@ module.exports = function (grunt) {
         }
       }
     },
-
     // Make sure code styles are up to par and there are no obvious mistakes
     jshint: {
       options: {
@@ -129,7 +134,21 @@ module.exports = function (grunt) {
         src: ['test/spec/{,*/}*.js']
       }
     },
-
+    less: {
+      options: {
+        paths: ['styles']
+      },
+      // target name
+      src: {
+        expand: true,
+        cwd: '<%= yeoman.app%>',
+        src: [
+          'styles/**/*.less'
+        ],
+        dest: '.tmp/',
+        ext: '.css'
+      }
+    },
     // Empties folders to start fresh
     clean: {
       dist: {
@@ -309,12 +328,15 @@ module.exports = function (grunt) {
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
+        'less',
         'copy:styles'
       ],
       test: [
+        'less',
         'copy:styles'
       ],
       dist: [
+        'less',
         'copy:styles',
         'imagemin',
         'svgmin'
