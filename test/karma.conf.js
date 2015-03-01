@@ -46,12 +46,11 @@ module.exports = function(config) {
     // - PhantomJS
     // - IE (only Windows)
     browsers: [
-      'PhantomJS'
+      // Here we put the E2E testing engine
     ],
 
     // Which plugins to enable
     plugins: [
-      'karma-phantomjs-launcher',
       'karma-jasmine'
     ],
 
