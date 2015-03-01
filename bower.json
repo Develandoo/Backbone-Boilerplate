@@ -7,8 +7,7 @@
     "requirejs": "~2.1.16"
   },
   "devDependencies": {
-    "jasmine": "~2.2.1",
-    "sinon": "~1.12.2"
+    "jasmine": "~2.2.1" 
   },
   "appPath": "app",
   "moduleName": "Backbone-Boilerplate"
