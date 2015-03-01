@@ -153,7 +153,7 @@ module.exports = function (grunt) {
           }
         },
         files: {
-          '<%= yeoman.app %>/templates.js': ['<%= yeoman.app %>/views/**/*.hbs']
+          '<%= yeoman.app %>/scripts/templates.js': ['<%= yeoman.app %>/views/**/*.hbs']
         }
       }
     },
@@ -324,7 +324,7 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'templates.js',
+            'scripts/templates.js',
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*'
           ]
