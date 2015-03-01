@@ -1,3 +1,3 @@
 'use strict';
 
-console.log("I am loaded");
+console.log('app.js loaded');
