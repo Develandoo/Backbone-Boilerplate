@@ -6,9 +6,7 @@ window.App = window.App || {};
 
 App.version = '1425257653471';
 
-var requirejs = requirejs || {};
-
-requirejs.config({
+require.config({
   baseUrl: 'scripts/',
   urlArgs: App.version
 });
