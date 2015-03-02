@@ -263,7 +263,7 @@ module.exports = function (grunt) {
           '<%= yeoman.dist %>/scripts'
         ],
         patterns: {
-          // FIXME While usemin won't have full support for revved files we have to put all references manually here
+          // As usemin does not support JS replacement, we have to mention manually
           js: [
               [/(images\/.*?\.(?:gif|jpeg|jpg|png|webp|svg))/gm, 'Update the JS to reference our revved images']
           ]
