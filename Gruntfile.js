@@ -161,7 +161,7 @@ module.exports = function (grunt) {
     'string-replace': {
       version: {
         files: {
-          '<%= yeoman.dist %>/scripts/app.js': '<%= yeoman.dist %>/scripts/app.js'
+          '<%= yeoman.dist %>/index.html': '<%= yeoman.dist %>/index.html'
         },
         options: {
           replacements: [{
@@ -231,8 +231,7 @@ module.exports = function (grunt) {
       dist: {
         files: {
           src: [
-            ['<%= yeoman.dist %>/scripts/app.js',
-             '<%= yeoman.dist %>/scripts/templates.js',
+            [
              '<%= yeoman.dist %>/scripts/vendor.js'
             ],
             '<%= yeoman.dist %>/styles/{,*/}*.css',
@@ -266,7 +265,7 @@ module.exports = function (grunt) {
     usemin: {
       html: ['<%= yeoman.dist %>/{,*/}*.html'],
       hbs: ['<%= yeoman.dist %>/{,*/}*.hbs'],
-      js: ['<%= yeoman.dist %>/scripts/*.templates.js'],
+      js: ['<%= yeoman.dist %>/scripts/templates.js'],
       css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
       options: {
         assetsDirs: [
@@ -394,11 +393,6 @@ module.exports = function (grunt) {
         'copy:styles',
         'handlebars'
       ],
-      test: [
-        'less',
-        'copy:styles',
-        'handlebars'
-      ],
       dist: [
         'less',
         'copy:styles',
@@ -439,8 +433,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
-    'concurrent:test',
-    'autoprefixer',
     'connect:test',
     'karma'
   ]);

@@ -14,7 +14,7 @@ module.exports = function(config) {
     basePath: '../',
 
     // testing framework to use (jasmine/mocha/qunit/...)
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'requirejs'],
 
     // list of files / patterns to load in the browser
     files: [
@@ -22,6 +22,7 @@ module.exports = function(config) {
       'bower_components/jquery/dist/jquery.js',
       'bower_components/underscore/underscore.js',
       'bower_components/backbone/backbone.js',
+      'bower_components/backbone.stickit/backbone.stickit.js',
       'bower_components/bootstrap/dist/js/bootstrap.js',
       'bower_components/requirejs/require.js',
       // endbower
@@ -51,7 +52,8 @@ module.exports = function(config) {
 
     // Which plugins to enable
     plugins: [
-      'karma-jasmine'
+      'karma-jasmine',
+      'karma-requirejs'
     ],
 
     // Continuous Integration mode
