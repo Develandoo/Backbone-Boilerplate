@@ -161,7 +161,7 @@ module.exports = function (grunt) {
     'string-replace': {
       version: {
         files: {
-          '<%= yeoman.app %>/scripts/app.js': '<%= yeoman.app %>/scripts/app.js'
+          '<%= yeoman.dist %>/scripts/app.js': '<%= yeoman.dist %>/scripts/app.js'
         },
         options: {
           replacements: [{
@@ -405,7 +405,6 @@ module.exports = function (grunt) {
         'imagemin',
         'svgmin',
         'handlebars',
-        'string-replace'
       ]
     },
 
@@ -455,6 +454,7 @@ module.exports = function (grunt) {
     'copy:dist',
     'cssmin',
     'uglify',
+    'string-replace',
     'rev',
     'usemin',
     'htmlmin'
