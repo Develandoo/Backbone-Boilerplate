@@ -2,7 +2,7 @@
 
 console.log('app.js loaded');
 
-window.App = window.App || {};
+var App = window.App || {};
 
 App.version = '1425257653471';
 
