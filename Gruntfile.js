@@ -393,6 +393,11 @@ module.exports = function (grunt) {
         'copy:styles',
         'handlebars'
       ],
+      test: [
+        'less',
+        'copy:styles',
+        'handlebars'
+      ],
       dist: [
         'less',
         'copy:styles',
@@ -433,6 +438,8 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
+    'concurrent:test',
+    'autoprefixer',
     'connect:test',
     'karma'
   ]);
