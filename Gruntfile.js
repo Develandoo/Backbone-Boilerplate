@@ -158,6 +158,19 @@ module.exports = function (grunt) {
         }
       }
     },
+    'string-replace': {
+      version: {
+        files: {
+          '<%= yeoman.app %>/scripts/app.js': '<%= yeoman.app %>/scripts/app.js'
+        },
+        options: {
+          replacements: [{
+            pattern: /{{ VERSION }}/g,
+            replacement: Date.now().toString()
+          }]
+        }
+      }
+    },
     less: {
       options: {
         paths: ['styles']
@@ -391,7 +404,8 @@ module.exports = function (grunt) {
         'copy:styles',
         'imagemin',
         'svgmin',
-        'handlebars'
+        'handlebars',
+        'string-replace'
       ]
     },
 
