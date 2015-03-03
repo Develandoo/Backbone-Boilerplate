@@ -15,24 +15,18 @@ module.exports = function(config) {
 
     // testing framework to use (jasmine/mocha/qunit/...)
     frameworks: ['jasmine', 'requirejs'],
-
     // list of files / patterns to load in the browser
     files: [
-      // bower:js
-      'bower_components/jquery/dist/jquery.js',
-      'bower_components/underscore/underscore.js',
-      'bower_components/backbone/backbone.js',
-      'bower_components/backbone.stickit/backbone.stickit.js',
-      'bower_components/bootstrap/dist/js/bootstrap.js',
-      'bower_components/requirejs/require.js',
-      // endbower
-      'app/scripts/**/*.js',
-      'test/mock/**/*.js',
-      'test/spec/**/*.js'
+       {pattern: 'bower_components/**/*.js', included: false},
+       {pattern: 'app/scripts/**/*.js', included: false},
+       {pattern: 'test/spec/**/*.spec.js', included: false},
+       'test/spec/test-main.js'
     ],
 
     // list of files / patterns to exclude
     exclude: [
+      'app/scripts/templates.js',
+      'app/scripts/app.js'
     ],
 
     // web server port
@@ -47,13 +41,14 @@ module.exports = function(config) {
     // - PhantomJS
     // - IE (only Windows)
     browsers: [
-      // Here we put the E2E testing engine
+      //'PhantomJS'
     ],
 
     // Which plugins to enable
     plugins: [
       'karma-jasmine',
-      'karma-requirejs'
+      'karma-requirejs',
+      'karma-phantomjs-launcher'
     ],
 
     // Continuous Integration mode
@@ -64,7 +59,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_INFO
 
     // Uncomment the following lines if you are using grunt's server to run the tests
     // proxies: {

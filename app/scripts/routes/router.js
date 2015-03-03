@@ -1,4 +1,6 @@
 'use strict';
+
+console.log("router loaded");
 /*define(function (require) {
  
     "use strict";
@@ -35,6 +37,6 @@
         }
  
     });
- 
+ Backbone.history.start();
 });*/
 
