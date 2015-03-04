@@ -18,7 +18,8 @@ module.exports = function (grunt) {
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
-    dist: 'dist'
+    dist: 'dist',
+    tmp: '.tmp'
   };
 
   // Define the configuration for all the tasks
@@ -161,13 +162,15 @@ module.exports = function (grunt) {
     'string-replace': {
       version: {
         files: {
-          '<%= yeoman.dist %>/scripts/app.js': '<%= yeoman.dist %>/scripts/app.js'
+          '<%= yeoman.dist %>/scripts/app.js': '<%= yeoman.dist %>/scripts/app.js' 
         },
         options: {
-          replacements: [{
-            pattern: /{{ VERSION }}/g,
-            replacement: Date.now().toString()
-          }]
+          replacements: [
+          {
+            pattern: /App\.version = '([^']+);/g,
+            replacement: "App.version = '"+Date.now().toString()+"'"
+          }
+        ]
         }
       }
     },
@@ -424,6 +427,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'concurrent:server',
+      'string-replace',
       'autoprefixer:server',
       'connect:livereload',
       'watch'

@@ -4,11 +4,11 @@ console.log('app.js loaded');
 
 var App = App || {};
 
-App.version = '{{ VERSION }}';
+App.version = '0.1';
 
 require.config({
   baseUrl: 'scripts/',
-  urlArgs: App.version,
+  urlArgs: App.version
   
 });
 
