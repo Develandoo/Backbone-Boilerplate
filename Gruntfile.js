@@ -167,8 +167,8 @@ module.exports = function (grunt) {
         options: {
           replacements: [
           {
-            pattern: /App\.version = '([^']+);/g,
-            replacement: "App.version = '"+Date.now().toString()+"'"
+            pattern: /{ VERSION }/g,
+            replacement: Date.now().toString()
           }
         ]
         }
