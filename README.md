@@ -1,8 +1,26 @@
-# Backbone-TechTalks
+# Backbone-Boilerplate
+
+=====================================
+
+## Installation
+
+Install node JS from nodejs.org
+
+Install Grunt Cli `npm install -g grunt-cli`
+
+Install Bower Cli `npm install -g bower`
+
+Install Karma Cli `npm install -g generator-karma`
+
+Clone from Git repo `git clone [reponame]`
+
+Run `npm install`
+
+Run `bower install`
 
 ## Build & development
 
-Run `grunt build` for building and `grunt serve` for preview.
+Run `grunt build` for building and `grunt serve` for local server and development.
 
 ## Testing
 
