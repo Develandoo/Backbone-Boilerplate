@@ -2,7 +2,17 @@
 
 console.log('app.js loaded');
 
-define(['collection/main.collection', 'model/main.model', 'view/main.view'], function(collection, model, view) {
+var App = App || {};
+
+App.version = '{{ VERSION }}';
+
+require.config({
+  baseUrl: 'scripts/',
+  urlArgs: App.version,
+  
+});
+
+define(['routes/router'], function(collection, model, view) {
   
   /**
    * use Handlebars like this: 
