@@ -7,18 +7,25 @@ var App = App || {};
 App.version = '{ VERSION }';
 
 require.config({
-  baseUrl: 'scripts/',
-  urlArgs: App.version
+  baseUrl: '/',
+  urlArgs: App.version,
+  paths: {
+    'jquery': 'bower_components/jquery/dist/jquery',
+    'underscore': 'bower_components/underscore/underscore',
+    'Backbone': 'bower_components/backbone/backbone'
+  }
   
 });
 
-define(['routes/router'], function(collection, model, view) {
+define(['scripts/routes/router'], function(Router) {
   
   /**
    * use Handlebars like this: 
    * var html = FistWallet.templates.home({ some: data })  
    * $("body").html(html);
    */
+  new Router();
+  Backbone.history.start();
        
 });
 

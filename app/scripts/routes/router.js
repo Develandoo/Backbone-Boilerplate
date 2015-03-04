@@ -1,42 +1,23 @@
 'use strict';
 
 console.log("router loaded");
-/*define(function (require) {
- 
-    "use strict";
- 
-    var $           = require('jquery'),
-        Backbone    = require('backbone'),
-         
-        $content = $("#content");
+define(['Backbone'], function (Backbone) {
  
     return Backbone.Router.extend({
  
         routes: {
-            "":                 "home",
-            "employees/:id":    "employee"
+            "": "home",
+            "about/:id": "about"
         },
  
         home: function () {
-            require(["app/views/Home"], function (HomeView) {
-                var view = new HomeView({el: $content});
-                view.render();
-            });
+          console.log("Home is triggered"); 
         },
  
-        employee: function (id) {
-            require(["app/views/Employee", "app/models"], function (EmployeeView, models) {
-                var employee = new models.Employee({id: id});
-                employee.fetch({
-                    success: function (data) {
-                        var view = new EmployeeView({model: data, el: $content});
-                        view.render();
-                    }
-                });
-            });
+        about: function (id) {
+          console.log("about is triggered", id);  
         }
  
     });
- Backbone.history.start();
-});*/
+});
 
