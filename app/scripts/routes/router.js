@@ -1,7 +1,7 @@
 'use strict';
 
 console.log("router loaded");
-define(['Backbone'], function (Backbone) {
+define(['backbone'], function (Backbone) {
  
     return Backbone.Router.extend({
  
@@ -15,7 +15,11 @@ define(['Backbone'], function (Backbone) {
         },
  
         about: function (id) {
-          console.log("about is triggered", id);  
+          console.log("loaded About", id);
+          require(['scripts/model/main.model'], function(Model) {
+            new Model();
+          });
+         
         }
  
     });

@@ -1,7 +1,7 @@
-define(['scripts/model/main.model'], function(model) {
-
+define(['model/main.model'], function(Model) {
   describe('A model', function(){
     it('should have certain defaults', function(){
+      new Model();
       expect(true).toBe(true);
     });
   });

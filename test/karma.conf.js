@@ -17,16 +17,17 @@ module.exports = function(config) {
     frameworks: ['jasmine', 'requirejs'],
     // list of files / patterns to load in the browser
     files: [
-       {pattern: 'app/bower_components/**/*.js', included: false},
-       {pattern: 'app/scripts/**/*.js', included: false},
-       {pattern: 'test/spec/**/*.spec.js', included: false},
-       'test/spec/test-main.js'
+      {pattern: 'app/bower_components/**/*.js', included: false},
+      {pattern: 'app/scripts/**/*.js', included: false},
+      {pattern: 'test/spec/**/*.spec.js', included: false},
+      'test/spec/test-main.js'
     ],
 
     // list of files / patterns to exclude
     exclude: [
       'app/scripts/templates.js',
-      'app/scripts/app.js'
+      'app/scripts/app.js',
+      'app/scripts/routes/router.js'
     ],
 
     // web server port
@@ -41,7 +42,7 @@ module.exports = function(config) {
     // - PhantomJS
     // - IE (only Windows)
     browsers: [
-      'PhantomJS'
+      //'PhantomJS'
     ],
 
     // Which plugins to enable

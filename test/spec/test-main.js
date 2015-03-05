@@ -7,7 +7,23 @@ for (var file in window.__karma__.files) {
 
 requirejs.config({
     
-    baseUrl: 'http://localhost:8080/base/app/',
+    baseUrl: '/base/app/scripts',
+
+    paths: {
+     'jquery': '../bower_components/jquery/dist/jquery',
+     'underscore': '../bower_components/underscore/underscore',
+     'backbone': '../bower_components/backbone/backbone'
+    },
+    shim: {
+      backbone:{ 
+         deps:
+            [
+             "underscore", 
+             "jquery"
+            ]
+         },
+         exports:"Backbone"
+      },
 
     // ask Require.js to load these files (all our tests)
     deps: tests,
