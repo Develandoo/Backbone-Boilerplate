@@ -2,6 +2,10 @@
 
 console.log('model/main.js loaded');
 
-define(['routes/router'], function(router) {
-  //console.log(router);
+define(['backbone'], function(Backbone) {
+  return Backbone.Model.extend({
+    initialize: function() {
+      console.log('main model initialized');
+    }
+  });
 });

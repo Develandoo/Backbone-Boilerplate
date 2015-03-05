@@ -6,11 +6,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
@@ -69,30 +65,10 @@
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
     </script>
-   
-    <!-- build:js(.) scripts/vendor.js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/handlebars/handlebars.js"></script>
-    <script src="bower_components/underscore/underscore.js"></script>
-    <script src="bower_components/backbone/backbone.js"></script>
-    <script src="bower_components/backbone.stickit/backbone.stickit.js"></script>
-    <script src="bower_components/requirejs/require.js"></script>
-    <!-- endbuild -->
     
-    <script>
-      var App = window.App || {};
-
-      App.version = '{{ VERSION }}';
-
-      require.config({
-        baseUrl: 'scripts/',
-        urlArgs: App.version
-      });
-      
-      require(['app', 'templates']);
-    </script>
-        
+    <!-- Main file for loading scripts-->
+    <script data-main="scripts/app" src="bower_components/requirejs/require.js"></script>
+    <!-- END of scripts to build -->
     
 </body>
 </html>

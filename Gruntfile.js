@@ -18,7 +18,8 @@ module.exports = function (grunt) {
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
-    dist: 'dist'
+    dist: 'dist',
+    tmp: '.tmp'
   };
 
   // Define the configuration for all the tasks
@@ -161,13 +162,15 @@ module.exports = function (grunt) {
     'string-replace': {
       version: {
         files: {
-          '<%= yeoman.dist %>/index.html': '<%= yeoman.dist %>/index.html'
+          '<%= yeoman.dist %>/scripts/app.js': '<%= yeoman.dist %>/scripts/app.js' 
         },
         options: {
-          replacements: [{
-            pattern: /{{ VERSION }}/g,
+          replacements: [
+          {
+            pattern: /{ VERSION }/g,
             replacement: Date.now().toString()
-          }]
+          }
+        ]
         }
       }
     },
@@ -231,9 +234,6 @@ module.exports = function (grunt) {
       dist: {
         files: {
           src: [
-            [
-             '<%= yeoman.dist %>/scripts/vendor.js'
-            ],
             '<%= yeoman.dist %>/styles/{,*/}*.css',
             '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
             '<%= yeoman.dist %>/styles/fonts/*'
@@ -252,7 +252,6 @@ module.exports = function (grunt) {
         flow: {
           html: {
             steps: {
-              js: ['concat', 'uglifyjs'],
               css: ['cssmin']
             },
             post: {}
@@ -303,7 +302,8 @@ module.exports = function (grunt) {
            cwd: '<%= yeoman.app %>/scripts/',
            src: ['**/*.js', 'app.js'],
            dest: '<%= yeoman.dist %>/scripts/'
-         }]
+         }
+       ]
        }
     },
     // concat: {
@@ -363,6 +363,7 @@ module.exports = function (grunt) {
             '.htaccess',
             '*.html',
             'scripts/templates.js',
+            'bower_components/**/*',
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*'
           ]
@@ -376,7 +377,8 @@ module.exports = function (grunt) {
           cwd: 'bower_components/bootstrap/dist',
           src: 'fonts/*',
           dest: '<%= yeoman.dist %>'
-        }]
+        }
+      ]
       },
       styles: {
         expand: true,
@@ -425,6 +427,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'concurrent:server',
+      'string-replace',
       'autoprefixer:server',
       'connect:livereload',
       'watch'
@@ -449,7 +452,6 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
-    'concat',
     'copy:dist',
     'cssmin',
     'uglify',
