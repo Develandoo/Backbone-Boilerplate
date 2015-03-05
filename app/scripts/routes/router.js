@@ -1,7 +1,7 @@
 'use strict';
 
 console.log("router loaded");
-/*define(['Backbone'], function (Backbone) {
+define(['Backbone'], function (Backbone) {
  
     return Backbone.Router.extend({
  
@@ -20,4 +20,3 @@ console.log("router loaded");
  
     });
 });
-*/
