@@ -7,18 +7,7 @@ for (var file in window.__karma__.files) {
 
 requirejs.config({
     
-    baseUrl: '/base/app/scripts',
-
-    paths: {
-        'jquery': '../bower_components/jquery',
-        'underscore': '../bower_components/underscore'
-    },
-
-    shim: {
-        'underscore': {
-            exports: '_'
-        }
-    },
+    baseUrl: 'http://localhost:8080/base/app/',
 
     // ask Require.js to load these files (all our tests)
     deps: tests,
