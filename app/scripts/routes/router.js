@@ -1,26 +1,25 @@
 'use strict';
 
-console.log("router loaded");
-define(['backbone'], function (Backbone) {
- 
+console.log('router loaded');
+define(['backbone'], function (Backbone, d3) {
+
     return Backbone.Router.extend({
- 
+
         routes: {
-            "": "home",
-            "about/:id": "about"
+            '(/)':  'main',
+            'about(/:state)': 'about'
         },
- 
-        home: function () {
-          console.log("Home is triggered"); 
+
+        main: function() {
+          console.log('Main route is loaded');
         },
- 
-        about: function (id) {
-          console.log("loaded About", id);
+
+        about: function (state) {
+          console.log('loaded About', state);
           require(['scripts/model/main.model'], function(Model) {
             new Model();
           });
-         
         }
- 
+
     });
 });

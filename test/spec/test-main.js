@@ -18,11 +18,11 @@ requirejs.config({
       backbone:{ 
          deps:
             [
-             "underscore", 
-             "jquery"
+             'underscore', 
+             'jquery'
             ]
          },
-         exports:"Backbone"
+         exports: 'Backbone'
       },
 
     // ask Require.js to load these files (all our tests)

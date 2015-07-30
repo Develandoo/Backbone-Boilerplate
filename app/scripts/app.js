@@ -15,27 +15,27 @@ require.config({
     'backbone': 'bower_components/backbone/backbone'
   },
   shim: {
-    backbone:{ 
+    backbone:{
        deps:
           [
-           "underscore", 
-           "jquery"
+           'underscore',
+           'jquery'
           ]
        },
-       exports:"Backbone"
+       exports: 'Backbone'
     }
-  
+
 });
 
 define(['scripts/routes/router'], function(Router) {
-  
+
   /**
-   * use Handlebars like this: 
-   * var html = FistWallet.templates.home({ some: data })  
+   * use Handlebars like this:
+   * var html = FistWallet.templates.home({ some: data })
    * $("body").html(html);
    */
   new Router();
   Backbone.history.start();
-       
+
 });
 
