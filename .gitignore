@@ -3,6 +3,6 @@ dist
 .tmp
 .idea/
 .sass-cache
-bower_components
+app/bower_components
 /nbproject/
-scripts/templates.js
+app/scripts/templates.js
