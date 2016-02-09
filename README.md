@@ -1,6 +1,6 @@
 # Backbone-Boilerplate
 
-=====================================
+> Backbone Boilerplate for easy project bootstrap
 
 ## Installation
 
